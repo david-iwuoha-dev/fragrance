@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Fragrance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080808;
+            --text-color: #ffffff;
+            --accent-color: #e5c100; /* Champagne Gold */
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+        }
+
+        /* 1. HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://res.cloudinary.com/denaqakxw/image/upload/v1766248358/f7eaf51a14844ce692112009d051e946_nixrof.jpg'); 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            color: var(--accent-color);
+        }
+
+        /* 2. GALLERY GRID */
+        .section-title {
+            text-align: center;
+            padding: 100px 0 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+        }
+
+        .video-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .wall-item {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 4px; /* Sharper, more modern edges */
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .wall-item:hover { 
+            transform: scale(1.02); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        /* 3. THE "NARRATIVE" PARALLAX */
+        .parallax-wrapper {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0; width: 100%; height: 120%;
+            background-image: url('https://res.cloudinary.com/denaqakxw/image/upload/v1766268269/photo_2025-12-20_23-02-19_d4tho6.jpg'); 
+            background-attachment: fixed;
+            background-size: cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+            background: var(--glass);
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 2px;
+            text-align: left;
+        }
+
+        .card h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2rem; 
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .card p {
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .card img {
+            width: 100%;
+            margin-top: 25px;
+            filter: grayscale(30%);
+        }
+
+        /* 4. MOMENTS GRID */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 5. CLOSING */
+        .closing {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to top, var(--bg-color) 20%, transparent), 
+                        url('https://res.cloudinary.com/denaqakxw/image/upload/v1766248358/WhatsApp_Image_2024-09-21_at_8.10.22_PM_e3jrmm.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 40px;
+        }
+
+        .closing h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 20px;
+        }
+
+        .closing p {
+            max-width: 600px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .highlights { grid-template-columns: 1fr; }
+            .video-wall { grid-template-columns: 1fr; }
+            .card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1 data-aos="fade-up" data-aos-duration="1500">Fragrance</h1>
+        <p data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">Something Special for You</p>
+    </section>
+
+    <h2 class="section-title" data-aos="fade-up">The Collection</h2>
+    <div class="video-wall">
+        <img class="wall-item" data-aos="zoom-in" src="https://res.cloudinary.com/denaqakxw/image/upload/v1766248552/IMG-20250227-WA0090_ayalr2.jpg">
+        <video class="wall-item" data-aos="zoom-in" autoplay loop muted playsinline><source src="https://res.cloudinary.com/denaqakxw/video/upload/v1766248360/54cb7851e6874f08a4ccbc427070ea5d_qyjdyi.mp4" type="video/mp4"></video>
+        <video class="wall-item" data-aos="zoom-in" autoplay loop muted playsinline><source src="https://res.cloudinary.com/denaqakxw/video/upload/v1766248359/98e31b99f94543bbbf55cd685c9c1774_ffxb3n.mp4" type="video/mp4"></video>
+        <video class="wall-item" data-aos="zoom-in" autoplay loop muted playsinline><source src="https://res.cloudinary.com/denaqakxw/video/upload/v1766248361/Snapchat-2102074026_diyoe7.mp4" type="video/mp4"></video>
+        <img class="wall-item" data-aos="zoom-in" src="https://res.cloudinary.com/denaqakxw/image/upload/v1766248359/WhatsApp_Image_2024-09-21_at_8.10.23_PM_tyda5w.jpg">
+        <img class="wall-item" data-aos="zoom-in" src="https://res.cloudinary.com/denaqakxw/image/upload/v1766268269/photo_2025-12-20_23-02-19_d4tho6.jpg">
+        <video class="wall-item" data-aos="zoom-in" autoplay loop muted playsinline><source src="https://res.cloudinary.com/denaqakxw/video/upload/v1766248364/Snapchat-1839676859_vrgykm.mp4" type="video/mp4"></video>
+        <img class="wall-item" data-aos="zoom-in" src="https://res.cloudinary.com/denaqakxw/image/upload/v1766674074/Screenshot_2025-12-25_154724_uxdgud.png">
+        <video class="wall-item" data-aos="zoom-in" autoplay loop muted playsinline><source src="https://res.cloudinary.com/denaqakxw/video/upload/v1766673737/06780a8c69b3439d962298e9c41ee447_uzrut0.mp4" type="video/mp4"></video>
+        <video class="wall-item" data-aos="zoom-in" autoplay loop muted playsinline><source src="https://res.cloudinary.com/denaqakxw/video/upload/v1766248365/093f3ab8f9664eb9b813b515d76445e8_lzonkv.mp4" type="video/mp4"></video>
+        
+    </div>
+
+    <div class="parallax-wrapper">
+        <div class="parallax-bg"></div>
+        
+        <div class="card" data-aos="fade-right">
+            <h3>Simply put...</h3>
+            <p>I wanted to create a space that captures everything I appreciate about you. Just a digital sanctuary of the moments and the person that stays on my mind.</p>
+            <img src="https://res.cloudinary.com/denaqakxw/image/upload/v1766248358/f7eaf51a14844ce692112009d051e946_nixrof.jpg">
+        </div>
+
+        <div class="card" data-aos="fade-left">
+            <h3>Unforgettable</h3>
+            <p>Every video, every photo, and every conversation has its own unique energy. You have a way of making everything feel a little more significant.</p>
+            <img src="https://res.cloudinary.com/denaqakxw/image/upload/v1766191949/photo_2025-12-20_01-51-44_l1dncr.jpg">
+        </div>
+    </div>
+
+    <h2 class="section-title" data-aos="fade-up">Moments</h2>
+    <div class="highlights">
+        <img class="wall-item" data-aos="fade-up" src="https://res.cloudinary.com/denaqakxw/image/upload/v1766674297/Screenshot_20251220_175935_TikTok_Lite_bskh2z.jpg">
+        <img class="wall-item" data-aos="fade-up" data-aos-delay="100" src="https://res.cloudinary.com/denaqakxw/image/upload/v1766674074/Screenshot_2025-12-25_154724_uxdgud.png">
+        <img class="wall-item" data-aos="fade-up" data-aos-delay="200" src="https://res.cloudinary.com/denaqakxw/image/upload/v1766674651/Screenshot_2025-12-25_155705_n5qens.png">
+    </div>
+
+    <section class="closing">
+        <h2 data-aos="zoom-out">To Bolu.</h2>
+        <p data-aos="fade-up" data-aos-delay="600">
+            I appreciate you more than words on a screen can say. 
+            I hope this makes you smile today, because you definitely deserve it.💓
+        </p>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+</html>
